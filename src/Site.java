@@ -37,12 +37,12 @@ public class Site {
 
     }
 
-    public void client_fidele(Clien clien) {
+    public void ajouter_client_fidele(Clien clien) {
         if (NosClients != null) {
-            if (clien.getNb_seance_assiste() > 25) {
-                this.NosClients[nb_client_fid] = clien.getNumClient();
-                this.nb_client_fid++;
-            }
+            // if (clien.getNb_seance_assiste() > 25) {
+            this.NosClients[nb_client_fid] = clien.getNumClient();
+            this.nb_client_fid++;
+            // }
         }
     }
 
@@ -202,5 +202,21 @@ public class Site {
 
     public void setNb_reserv(int nb_reserv) {
         this.nb_reserv = nb_reserv;
+    }
+
+    public void afficher_clients_fideles(Clien[] group_cl) {
+
+        for (Clien clien : group_cl) {
+            if (idExisteFid(clien.getNumClient())) {
+                clien.AffichierClient();
+            }
+        }
+    }
+
+    public void afficher_les_reservation() {
+        for (int i = 0; i < this.nb_reserv; i++) {
+            System.out.println("\nLa reservation n" + i);
+            System.out.println("Le client n" + this.list_reserve[i][0] + "\tLa seance n" + this.list_reserve[i][1]);
+        }
     }
 }

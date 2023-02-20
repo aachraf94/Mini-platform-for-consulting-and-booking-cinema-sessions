@@ -21,7 +21,7 @@ public class Main {
         String[] acteurs = { "lyna khoudri", "Shirine Boutella", "Yasin Houicha", "Zahra Doumandji", "Aida ghechoud",
                 "Meriem Medjkrane", "Nadia Kaci" };
         String synopsis = "Alger, années 90. Nedjma, 18 ans, étudiante habitant la cité universitaire, rêve de devenir styliste.";
-        Film f1 = new Film("Papicha", "2019", "Mounia Meddour", acteurs, synopsis);
+        Film f1 = new Film("Pipich", "2019", "Mounia Meddour", acteurs, synopsis);
         // f1.afficherFilm();
 
         // Film 02
@@ -90,17 +90,19 @@ public class Main {
         Cinema CinemaAlger = new Cinema("CinemaAlger", "Alger, Algrie", SallesCinema, GuideCinema);
 
         // les client fidele
-        GuideCinema.client_fidele(cl1);
-        GuideCinema.client_fidele(cl2);
-        GuideCinema.client_fidele(cl3);
-        GuideCinema.client_fidele(cl4);
-        GuideCinema.client_fidele(cl5);
-        GuideCinema.client_fidele(cl6);
-        GuideCinema.client_fidele(cl7);
-        GuideCinema.client_fidele(cl8);
+        GuideCinema.ajouter_client_fidele(cl1);
+        // GuideCinema.ajouter_client_fidele(cl2);
+        GuideCinema.ajouter_client_fidele(cl3);
+        GuideCinema.ajouter_client_fidele(cl4);
+        // GuideCinema.ajouter_client_fidele(cl5);
+        GuideCinema.ajouter_client_fidele(cl6);
+        // GuideCinema.ajouter_client_fidele(cl7);
+        GuideCinema.ajouter_client_fidele(cl8);
+
+        // les client fidele cl1 cle3 cle 4 cle6 cl8
 
         int choix = (-1);
-        while (choix != 7) {
+        while (choix != 9) {
             System.out.println("\n\n\t**************** Menu ****************");
             System.out.println("\t1- Afficher les clients");
             System.out.println("\t2- Consulter les program de tout les salles");
@@ -108,7 +110,9 @@ public class Main {
             System.out.println("\t4- Afficher le program de la salle COSMOS");
             System.out.println("\t5- Afficher le program de la salle Riadh El Feth");
             System.out.println("\t6- Réservation un place pour une seance");
-            System.out.println("\t7- Quitter");
+            System.out.println("\t7- Afficher Les clients fideles");
+            System.out.println("\t8- Afficher Tout les reservation");
+            System.out.println("\t9- Quitter");
             System.out.print("\n\t\t Votre choix : ");
 
             Scanner sc = new Scanner(System.in);
@@ -173,6 +177,24 @@ public class Main {
                     System.out.flush();
                 }
                 case 7 -> {
+                    // code
+                    GuideCinema.afficher_clients_fideles(NosClient);
+                    System.out.println("Appuyez sur Entrée pour continuer...");
+                    sc.nextLine();
+                    sc.nextLine();
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                }
+                case 8 -> {
+                    // code
+                    GuideCinema.afficher_les_reservation();
+                    System.out.println("Appuyez sur Entrée pour continuer...");
+                    sc.nextLine();
+                    sc.nextLine();
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                }
+                case 9 -> {
                     // code
                     // System.out.print("\033[H\033[2J");
                     // System.out.flush();
